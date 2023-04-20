@@ -5,7 +5,7 @@
     height: 100px;
     padding: 10px;
     background-color: #000000;
-    box-shadow: 0 1px 8px aqua  ;
+    box-shadow: 0 1px 8px rgb(237, 160, 52)  ;
 }
 
 
@@ -40,6 +40,12 @@ img{
     border-right: 0;
     color: var(--text-color);
     outline: none;
+  }
+
+  .search-btn{
+    width: 5%;
+    padding: 14px 15px 14px 20px;
+    margin-left: 10px;
   }
 
   .restaurant-list{
