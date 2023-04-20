@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "parcel": "^2.8.3",
+    "process": "^0.11.10"
+  },
+  "name": "lec4-reactpractise",
+  "version": "1.0.0",
+  
+  "scripts": {
+    "start": "parcel index.html",
+    "test": "jest",
+    "build": "parcel build index.html"
+  },
+  "author": "Chhavi Rana",
+  "license": "ISC",
+  "description": ""
+}
