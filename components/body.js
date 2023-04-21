@@ -58,9 +58,9 @@ const Body = () => {
         <button
           className="search-btn"
           onClick={() => {
-            setRestaurant(restaurantList);
-            console.log(restaurant)
-            const data = filterData(searchText, restaurant);
+            // setRestaurant(restaurantList);
+            //console.log(restaurant)
+            const data = filterData(searchText, restaurantList);
             setRestaurant(data);
             
             // console.log(data);
