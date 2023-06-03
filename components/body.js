@@ -1,6 +1,7 @@
 import RestaurantCard from "./restaurantCard";
 import { restaurantList } from "../constants";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Shimmer from "./shimmer";
 
 // using spread operator
 /* 
@@ -25,25 +26,33 @@ const Body = () => {
 */
 
 function filterData(searchText, restaurant) {
-  // console.log(restaurant);
   const filterData = restaurant.filter((restaurants) => {
-    return restaurants.data.name.includes(searchText)
+    return restaurants.data.name.includes(searchText);
   });
-  // console.log(filterData);
   return filterData;
 }
 
-const restaurantCo = restaurantList;
-
 const Body = () => {
-
-  
   const [searchText, setSearchText] = useState("");
-  
+  const [allrestaurant, setAllRestaurant] = useState([]);
   const [restaurant, setRestaurant] = useState(restaurantList);
-  
 
-  return (
+  useEffect(() => {
+    getRestaurants();
+  }, []);
+
+  async function getRestaurants() {
+    const response = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.8023629&lng=80.1870351&page_type=DESKTOP_WEB_LISTING"
+    );
+    const json = await response.json();
+    console.log(json);
+    setAllRestaurant(json?.data?.cards[2]?.data?.data?.cards);
+  }
+
+  return allrestaurant?.length == 0 ? (
+    <Shimmer />
+  ) : (
     <>
       <div className="search-container">
         <input
@@ -62,7 +71,7 @@ const Body = () => {
             //console.log(restaurant)
             const data = filterData(searchText, restaurantList);
             setRestaurant(data);
-            
+
             // console.log(data);
           }}
         >
@@ -70,7 +79,7 @@ const Body = () => {
         </button>
       </div>
       <div className="restaurant-list">
-        {restaurant.map((restaurant) => {
+        {allrestaurant?.map((restaurant) => {
           return (
             <RestaurantCard {...restaurant.data} key={restaurant.data.id} />
           );
