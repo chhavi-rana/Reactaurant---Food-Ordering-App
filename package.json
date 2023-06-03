@@ -11,7 +11,7 @@
   "version": "1.0.0",
   
   "scripts": {
-    "start": "yarn parcel index.html",
+    "start": "parcel index.html",
     "test": "jest",
     "build": "parcel build index.html"
   },
