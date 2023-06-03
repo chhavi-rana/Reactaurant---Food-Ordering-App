@@ -1,6 +1,5 @@
 import { IMG_CDN_URL } from "../constants";
 
-
 // Receiving data from dominos object
 /* 
 const Dominos = {
@@ -39,7 +38,6 @@ const RestaurantCard = () => {
 }; 
 
  */
-
 
 /* 
 const RestaurantCard = (props) =>{
@@ -81,16 +79,20 @@ const RestaurantCard = ({restaurant}) =>{
 };
  */
 
-const RestaurantCard = ({name, cloudinaryImageId, cuisines, deliveryTime}) =>{
-    
-    return (
-        <div className="card">
-            <img src={IMG_CDN_URL + cloudinaryImageId} />
-            <h2>{name}</h2>
-            <h3>{cuisines.join(", ")}</h3>
-            <h4>Delivery Time : {deliveryTime} min</h4>
-        </div>
-    );
+const RestaurantCard = ({
+  name,
+  cloudinaryImageId,
+  cuisines,
+  deliveryTime,
+}) => {
+  return (
+    <div className="card">
+      <img src={IMG_CDN_URL + cloudinaryImageId} />
+      <h2>{name}</h2>
+      <h3>{cuisines.join(", ")}</h3>
+      <h4>Delivery Time : {deliveryTime} min</h4>
+    </div>
+  );
 };
 
 export default RestaurantCard;
