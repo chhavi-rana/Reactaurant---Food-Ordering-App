@@ -50,7 +50,7 @@ const Body = () => {
     setAllRestaurant(json?.data?.cards[2]?.data?.data?.cards);
   }
 
-  
+  if(allrestaurant === undefined) return <h1>Oh! All restaurants are currently unserviceable</h1>
 
   return allrestaurant?.length === 0 ? (
     <Shimmer />
