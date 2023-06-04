@@ -27,7 +27,7 @@ const Body = () => {
 
 function filterData(searchText, restaurant) {
   const filterData = restaurant.filter((restaurants) => {
-    return restaurants.data.name.includes(searchText);
+    return restaurants?.data?.name?.toLowerCase()?.includes(searchText.toLowerCase());
   });
   return filterData;
 }
@@ -35,6 +35,7 @@ function filterData(searchText, restaurant) {
 const Body = () => {
   const [searchText, setSearchText] = useState("");
   const [allrestaurant, setAllRestaurant] = useState([]);
+  const [filterRestaurant, setFilteredRestaurant] = useState([]);
   const [restaurant, setRestaurant] = useState(restaurantList);
 
   useEffect(() => {
@@ -42,14 +43,26 @@ const Body = () => {
   }, []);
 
   async function getRestaurants() {
-    const response = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&page_type=DESKTOP_WEB_LISTING",{
-      mode: 'no-cors'
- }
+    try{
+      const response = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&page_type=DESKTOP_WEB_LISTING",{
+        method:"GET",
+        headers: {
+          accept: 'application/json',
+        },
+      }
     );
+
+    if (!response.ok) {
+      throw new Error(`Error! status: ${response.status}`);
+    }
+    
     const json = await response.json();
     console.log(json);
     setAllRestaurant(json?.data?.cards[2]?.data?.data?.cards);
+    setFilteredRestaurant(json?.data?.cards[2]?.data?.data?.cards);
+    }catch (err) {
+      console.log(err);
+    }
   }
 
   if(allrestaurant === undefined) return <h1>Oh! All restaurants are currently unserviceable</h1>
@@ -73,8 +86,8 @@ const Body = () => {
           onClick={() => {
             // setRestaurant(restaurantList);
             //console.log(restaurant)
-            const data = filterData(searchText, restaurantList);
-            setRestaurant(data);
+            const data = filterData(searchText, allrestaurant);
+            setFilteredRestaurant(data);
 
             // console.log(data);
           }}
@@ -83,7 +96,7 @@ const Body = () => {
         </button>
       </div>
       <div className="restaurant-list">
-        {allrestaurant?.map((restaurant) => {
+        {filterRestaurant?.map((restaurant) => {
           return (
             <RestaurantCard {...restaurant.data} key={restaurant.data.id} />
           );
