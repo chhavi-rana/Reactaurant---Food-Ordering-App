@@ -44,7 +44,7 @@ const Body = () => {
 
   async function getRestaurants() {
     try{
-      const response = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&page_type=DESKTOP_WEB_LISTING",{
+      const response = await fetch("https://api.npoint.io/0f631fea97432f43ca61",{
         method:"GET",
         headers: {
           accept: 'application/json',
