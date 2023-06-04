@@ -18,6 +18,13 @@ img {
   padding: 0 35px;
 }
 
+.auth{
+  color: orange;
+  display: inline-block;
+  padding: 0 35px;
+  background-color: black ;
+}
+
 .search-container {
   margin: 100px auto 20px;
   text-align: center;
