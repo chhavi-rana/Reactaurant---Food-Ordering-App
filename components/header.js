@@ -17,11 +17,11 @@ const Header = () => {
           <li className="nav-items">Cart</li>
           {loggedInUser? (
           <button className="auth" onClick={() => setLoggedInUser(false)}>
-            Login
+            LogOut
           </button>
           ): (
           <button className="auth" onClick={() => setLoggedInUser(true)}>
-            LogOut
+            LogIn
           </button>
           )}
         </ul>
