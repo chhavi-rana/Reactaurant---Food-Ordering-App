@@ -1,7 +1,9 @@
 import RestaurantCard from "./restaurantCard";
 import { restaurantList } from "../constants";
 import { useState, useEffect } from "react";
+
 import Shimmer from "./shimmer";
+import AboutUs from "./about";
 
 // using spread operator
 /* 

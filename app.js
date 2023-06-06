@@ -1,10 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-
+import { createBrowserRouter, Router, RouterProvider } from "react-router-dom";
 import "./styles.css";
 import Header from "./components/header";
 import Body from "./components/body";
 import Footer from "./components/footer";
+import AboutUs from "./components/about";
+import Error from "./components/error";
+
 /* 
 
 AppLayout : (Planning)
@@ -39,5 +42,17 @@ const AppLayout = () => {
   );
 };
 
+const AppRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <AppLayout />,
+    errorElement: <Error />
+  },
+  {
+    path: "/about",
+    element: <AboutUs />,
+  },
+]);
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<AppLayout />);
+root.render(<RouterProvider router={AppRouter} />);
