@@ -5,9 +5,12 @@ import "./styles.css";
 import Header from "./components/header";
 import Body from "./components/body";
 import Footer from "./components/footer";
-import AboutUs from "./components/about";
+import Offers from "./components/offer";
 import Error from "./components/error";
-
+import Help from "./components/help";
+import Cart from "./components/cart";
+import { Outlet } from "react-router-dom";
+import RestaurantInfo from "./components/restaurantDetail";
 /* 
 
 AppLayout : (Planning)
@@ -36,7 +39,7 @@ const AppLayout = () => {
   return (
     <>
       <Header />
-      <Body />
+      <Outlet />
       <Footer />
     </>
   );
@@ -46,11 +49,29 @@ const AppRouter = createBrowserRouter([
   {
     path: "/",
     element: <AppLayout />,
-    errorElement: <Error />
-  },
-  {
-    path: "/about",
-    element: <AboutUs />,
+    errorElement: <Error />,
+    children: [
+      {
+        path: "/",
+        element: <Body />,
+      },
+      {
+        path: "/offer",
+        element: <Offers />,
+      },
+      {
+        path: "/help",
+        element: <Help />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
+      },
+      {
+        path: "/restaurant/:resId",
+        element: <RestaurantInfo />,
+      },
+    ],
   },
 ]);
 
