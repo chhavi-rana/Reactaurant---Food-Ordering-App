@@ -1,8 +1,13 @@
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+  const companyName = "Your Company";
+
   return (
-    <>
-      <h2>Footer</h2>
-    </>
+    <footer className="footer">
+      <p>
+        &copy; {currentYear} {companyName}. All rights reserved.
+      </p>
+    </footer>
   );
 };
 
