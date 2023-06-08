@@ -3,7 +3,8 @@ import { restaurantList } from "../constants";
 import { useState, useEffect } from "react";
 
 import Shimmer from "./shimmer";
-import AboutUs from "./about";
+import Offers from "./offer";
+import { Link } from "react-router-dom";
 
 // using spread operator
 /* 
@@ -29,7 +30,9 @@ const Body = () => {
 
 function filterData(searchText, restaurant) {
   const filterData = restaurant.filter((restaurants) => {
-    return restaurants?.data?.name?.toLowerCase()?.includes(searchText.toLowerCase());
+    return restaurants?.data?.name
+      ?.toLowerCase()
+      ?.includes(searchText.toLowerCase());
   });
   return filterData;
 }
@@ -45,29 +48,32 @@ const Body = () => {
   }, []);
 
   async function getRestaurants() {
-    try{
-      const response = await fetch("https://api.npoint.io/0f631fea97432f43ca61",{
-        method:"GET",
-        headers: {
-          accept: 'application/json',
-        },
-      }
-    );
+    try {
+      const response = await fetch(
+        "https://api.npoint.io/0f631fea97432f43ca61",
+        {
+          method: "GET",
+          headers: {
+            accept: "application/json",
+          },
+        }
+      );
 
-    if (!response.ok) {
-      throw new Error(`Error! status: ${response.status}`);
-    }
-    
-    const json = await response.json();
-    console.log(json);
-    setAllRestaurant(json?.data?.cards[2]?.data?.data?.cards);
-    setFilteredRestaurant(json?.data?.cards[2]?.data?.data?.cards);
-    }catch (err) {
+      if (!response.ok) {
+        throw new Error(`Error! status: ${response.status}`);
+      }
+
+      const json = await response.json();
+      //console.log(json);
+      setAllRestaurant(json?.data?.cards[2]?.data?.data?.cards);
+      setFilteredRestaurant(json?.data?.cards[2]?.data?.data?.cards);
+    } catch (err) {
       console.log(err);
     }
   }
 
-  if(allrestaurant === undefined) return <h1>Oh! All restaurants are currently unserviceable</h1>
+  if (allrestaurant === undefined)
+    return <h1>Oh! All restaurants are currently unserviceable</h1>;
 
   return allrestaurant?.length === 0 ? (
     <Shimmer />
@@ -100,7 +106,13 @@ const Body = () => {
       <div className="restaurant-list">
         {filterRestaurant?.map((restaurant) => {
           return (
-            <RestaurantCard {...restaurant.data} key={restaurant.data.id} />
+            <Link
+              to={"/restaurant/" + restaurant.data.id}
+              key={restaurant.data.id}
+            >
+              {" "}
+              <RestaurantCard {...restaurant.data} />{" "}
+            </Link>
           );
         })}
       </div>
