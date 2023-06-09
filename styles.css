@@ -1,11 +1,43 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "PT Sans", "Lato", Calibri, sans-serif;
+}
+
+/* all link CSS */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+:root {
+  --header-bg-color: rgb(1, 163, 144);
+  --footer-bg-color: rgb(1, 163, 144);
+  --body-bg-color: #e3e3e3;
+  --input-bg: #f2f2f2;
+  --input-bg-focus: #dbdbdb;
+  --text-color: #000;
+  --light-green: #00ad1d;
+  --dark-green: #016034;
+  --orange: #d97919;
+  --light-orange: #ffaf60;
+  --dark-orange: #c26100;
+  --x-dark-orange: rgb(157, 42, 1);
+  --light-red: rgb(236, 56, 56);
+  --white: #fff;
+  --light-black: rgb(23, 23, 23);
+  --light-blue: #0463ac;
+  --dark-blue: #070062;
+}
+
 .nav-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 100px;
+  height: 120px;
   padding: 10px;
   background-color: #000000;
-  box-shadow: 0 1px 8px rgb(237, 160, 52);
+  box-shadow: 0 1px 8px #eda034;
 }
 
 img {
@@ -15,14 +47,22 @@ img {
 .nav-items {
   color: orange;
   display: inline-block;
-  padding: 0 35px;
+  padding: 20px 45px;
+}
+
+.nav-items:hover {
+  background-color: whitesmoke;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .auth {
-  color: orange;
+  color: rgb(0, 0, 0);
   display: inline-block;
-  padding: 0 35px;
-  background-color: black;
+  padding: 20px 45px;
+  border-radius: 5px;
+  background-color: rgb(233, 228, 228);
+  border: 1px solid black;
 }
 
 .search-container {
@@ -49,25 +89,75 @@ img {
 .search-btn {
   width: 8%;
   padding: 14px 15px 14px 20px;
-  margin-left: 10px;
+  background-color: #f18939;
+  color: white;
+  border: 1px solid #aabcca;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.search-btn:hover {
+  background-color: green;
 }
 
 .restaurant-list {
+  width: auto;
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   justify-content: center;
-  gap: 25px;
+  align-self: stretch;
 }
 
 .card {
-  border: solid 1px black;
-  width: 200px;
+  width: 230px;
+  border-radius: 5px;
+  box-shadow: -1px 5px 10px 5px rgba(42, 42, 42, 0.2);
   padding: 10px;
+  margin: 20px;
+  cursor: pointer;
 }
 
 .card > img {
   width: 100%;
-  height: 7rem;
+  border-radius: 10px;
+}
+
+.card > h5 {
+  font-weight: lighter;
+}
+
+.card > span {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  text-align: center;
+}
+
+.card > span > h4 {
+  font-weight: bolder;
+  font-size: 12px;
+  padding: 0 2px 0;
+  margin-top: 10px;
+}
+
+.card > span > h4:first-child {
+  display: flex;
+  align-items: center;
+  background-color: var(--light-green);
+  border-radius: 5px;
+  color: white;
+  padding: 5px;
+  margin-top: 5px;
+}
+
+.card > span > h4:first-child .fa-star {
+  font-size: 10px;
+  padding: 2px 5px 3px 0;
+}
+
+.card:hover {
+  transform: scale(1.03);
 }
 
 .shimmer-container {

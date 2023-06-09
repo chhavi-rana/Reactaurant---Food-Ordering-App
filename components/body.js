@@ -6,28 +6,6 @@ import Shimmer from "./shimmer";
 import Offers from "./offer";
 import { Link } from "react-router-dom";
 
-// using spread operator
-/* 
-const Body = () => {
-  return (
-    <>
-      <div className="search-container">
-        <input className="search-input" type="text" placeholder="Search" />
-      </div>
-      <div className="restaurant-list">
-        <RestaurantCard   {...restaurantList[0].data} />
-        <RestaurantCard   {...restaurantList[2].data} />
-        <RestaurantCard   {...restaurantList[3].data} />
-        <RestaurantCard   {...restaurantList[4].data} />
-        <RestaurantCard   {...restaurantList[5].data} />
-        <RestaurantCard   {...restaurantList[1].data} />
-        
-      </div>
-    </>
-  );
-}; 
-*/
-
 function filterData(searchText, restaurant) {
   const filterData = restaurant.filter((restaurants) => {
     return restaurants?.data?.name
@@ -42,6 +20,7 @@ const Body = () => {
   const [allrestaurant, setAllRestaurant] = useState([]);
   const [filterRestaurant, setFilteredRestaurant] = useState([]);
   const [restaurant, setRestaurant] = useState(restaurantList);
+  console.log(useState());
 
   useEffect(() => {
     getRestaurants();
@@ -50,7 +29,7 @@ const Body = () => {
   async function getRestaurants() {
     try {
       const response = await fetch(
-        "https://api.npoint.io/0f631fea97432f43ca61",
+        "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.1702401&lng=72.83106070000001&page_type=DESKTOP_WEB_LISTING",
         {
           method: "GET",
           headers: {
@@ -64,7 +43,7 @@ const Body = () => {
       }
 
       const json = await response.json();
-      //console.log(json);
+
       setAllRestaurant(json?.data?.cards[2]?.data?.data?.cards);
       setFilteredRestaurant(json?.data?.cards[2]?.data?.data?.cards);
     } catch (err) {
@@ -83,7 +62,7 @@ const Body = () => {
         <input
           className="search-input"
           type="text"
-          placeholder="Search"
+          placeholder="Search a Restaurant you want..."
           value={searchText}
           onChange={(e) => {
             setSearchText(e.target.value);
@@ -92,12 +71,8 @@ const Body = () => {
         <button
           className="search-btn"
           onClick={() => {
-            // setRestaurant(restaurantList);
-            //console.log(restaurant)
             const data = filterData(searchText, allrestaurant);
             setFilteredRestaurant(data);
-
-            // console.log(data);
           }}
         >
           Search
@@ -110,8 +85,7 @@ const Body = () => {
               to={"/restaurant/" + restaurant.data.id}
               key={restaurant.data.id}
             >
-              {" "}
-              <RestaurantCard {...restaurant.data} />{" "}
+              <RestaurantCard {...restaurant.data} />
             </Link>
           );
         })}
