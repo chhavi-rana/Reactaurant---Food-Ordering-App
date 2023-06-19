@@ -10,7 +10,7 @@ import Error from "./components/error";
 import Help from "./components/help";
 import Cart from "./components/cart";
 import { Outlet } from "react-router-dom";
-import RestaurantInfo from "./components/restaurantDetail";
+import RestaurantMenu from "./components/restaurantDetail";
 /* 
 
 AppLayout : (Planning)
@@ -69,7 +69,7 @@ const AppRouter = createBrowserRouter([
       },
       {
         path: "/restaurant/:resId",
-        element: <RestaurantInfo />,
+        element: <RestaurantMenu />,
       },
     ],
   },

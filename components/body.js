@@ -1,8 +1,6 @@
 import RestaurantCard from "./restaurantCard";
-import { restaurantList } from "../constants";
 import { useState, useEffect } from "react";
-
-import Shimmer from "./shimmer";
+import Shimmer from "./Shimmer";
 import Offers from "./offer";
 import { Link } from "react-router-dom";
 
@@ -19,8 +17,6 @@ const Body = () => {
   const [searchText, setSearchText] = useState("");
   const [allrestaurant, setAllRestaurant] = useState([]);
   const [filterRestaurant, setFilteredRestaurant] = useState([]);
-  const [restaurant, setRestaurant] = useState(restaurantList);
-  console.log(useState());
 
   useEffect(() => {
     getRestaurants();
@@ -29,7 +25,7 @@ const Body = () => {
   async function getRestaurants() {
     try {
       const response = await fetch(
-        "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.1702401&lng=72.83106070000001&page_type=DESKTOP_WEB_LISTING",
+        "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&page_type=DESKTOP_WEB_LISTING",
         {
           method: "GET",
           headers: {
