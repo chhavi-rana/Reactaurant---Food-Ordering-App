@@ -1,1 +1,2 @@
-![image](https://github.com/chhavi-rana/Reactaurant---Food-Ordering-App/assets/83640180/ccc75eae-69a3-4ca7-bc81-0cc923db36e5)
+![image](https://github.com/chhavi-rana/Reactaurant---Food-Ordering-App/assets/83640180/2d18ee74-16d1-4fb2-af06-681bb2c8c742)
+
