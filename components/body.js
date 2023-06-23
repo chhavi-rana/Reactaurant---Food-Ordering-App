@@ -1,7 +1,7 @@
 import RestaurantCard from "./restaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./shimmer";
-import Offers from "./offer";
+import useOnline from "../utils/useOnline";
 import { Link } from "react-router-dom";
 
 function filterData(searchText, restaurant) {
@@ -47,8 +47,36 @@ const Body = () => {
     }
   }
 
-  if (allrestaurant === undefined)
-    return <h1>Oh! All restaurants are currently unserviceable</h1>;
+  const isOnline = useOnline();
+  console.log(isOnline);
+
+  if (!isOnline) {
+    return (
+      <div className="not-online-container">
+        <div className="not-online-card">
+          <h1 className="not-online-title">
+            Oops! You're not online right now
+          </h1>
+          <p className="not-online-description">Please check back later</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (allrestaurant === undefined) {
+    return (
+      <div className="restaurant-unavailable-container">
+        <div className="restaurant-unavailable-card">
+          <h1 className="restaurant-unavailable-title">
+            Oops! All restaurants are currently unavailable
+          </h1>
+          <p className="restaurant-unavailable-description">
+            Please try again later
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   return allrestaurant?.length === 0 ? (
     <Shimmer />
