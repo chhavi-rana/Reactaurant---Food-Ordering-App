@@ -39,9 +39,9 @@ const RestaurantMenu = () => {
             </div>
             <div className="restaurant-rating-slash">|</div>
             <div>
-              {restaurant?.aggregatedDiscountInfo.header === undefined
-                ? "10% OFF"
-                : aggregatedDiscountInfo.header}
+              {restaurant?.aggregatedDiscountInfo?.header
+                ? restaurant.aggregatedDiscountInfo.header
+                : "15% OFF"}
             </div>
 
             <div className="restaurant-rating-slash">|</div>
