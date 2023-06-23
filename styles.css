@@ -498,30 +498,64 @@ img {
     margin-right: 10px;
   }
 
-  /* .menu-items-container {
-    width: 100%;
-  }
+}
 
-  .menu-item {
-    flex-direction: column;
-    padding: 15px 20px;
-  }
+/* CSS for Unavailable restaurants */
+.restaurant-unavailable-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  background-color: #051c2c;
+}
 
-  .menu-item-details {
-    align-self: auto;
-    margin-top: 10px;
-  }
+.restaurant-unavailable-card {
+  background-color: #042140;
+  border-radius: 12px;
+  padding: 48px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
 
-  .item-title,
-  .item-desc,
-  .item-cost {
-    width: 100%;
-    
-  }
+.restaurant-unavailable-title {
+  font-size: 32px;
+  color: #f9f9f9;
+  text-align: center;
+  margin-bottom: 24px;
+}
 
-  .menu-img-wrapper {
-    width: 100%;
-    align-items: center;
-    margin-bottom: 10px;
-  } */
+.restaurant-unavailable-description {
+  font-size: 20px;
+  color: #d9d9d9;
+  text-align: center;
+}
+
+
+
+/* CSS for Not online */
+.not-online-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  background-color: #051c2c;
+}
+
+.not-online-card {
+  background-color: #042140;
+  border-radius: 12px;
+  padding: 48px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.not-online-title {
+  font-size: 32px;
+  color: #f9f9f9;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.not-online-description {
+  font-size: 20px;
+  color: #d9d9d9;
+  text-align: center;
 }
