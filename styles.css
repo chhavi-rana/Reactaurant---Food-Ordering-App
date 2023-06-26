@@ -73,7 +73,6 @@ img {
   .nav-items {
     margin-right: 2px;
   }
-  
 }
 
 .search-container {
@@ -288,7 +287,6 @@ img {
   max-height: auto;
   padding: 20px;
   border-bottom: rgba(40, 44, 63, 0.45) 0.5px solid;
-  
 }
 .menu-item-details {
   display: flex;
@@ -451,7 +449,7 @@ img {
 }
 
 @media screen and (max-width: 767px) {
-  .search-btn{
+  .search-btn {
     width: 20%;
   }
 
@@ -487,17 +485,16 @@ img {
     align-items: center;
     max-width: none;
     font-size: 14px;
-    margin-top: 10px; 
+    margin-top: 10px;
   }
 
-  .restaurant-rating{
+  .restaurant-rating {
     margin-right: 10px;
   }
 
-  .restaurant-rating-slash{
+  .restaurant-rating-slash {
     margin-right: 10px;
   }
-
 }
 
 /* CSS for Unavailable restaurants */
@@ -529,8 +526,6 @@ img {
   text-align: center;
 }
 
-
-
 /* CSS for Not online */
 .not-online-container {
   display: flex;
@@ -558,4 +553,113 @@ img {
   font-size: 20px;
   color: #d9d9d9;
   text-align: center;
+}
+
+/* CSS for CartComponent */
+
+.cart-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cart-title {
+  color: orange;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.item-info {
+  display: flex;
+  align-items: center;
+}
+
+.item-name {
+  font-size: 18px;
+  margin-left: 10px;
+}
+
+.item-price {
+  color: #888;
+  font-size: 16px;
+}
+
+.remove-button {
+  background-color: var(--light-red);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.remove-button:hover {
+  background-color: darkred;
+}
+
+.clear-button {
+  background-color: var(--light-red);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.clear-button:hover {
+  background-color: darkred;
+}
+
+.popup {
+  position: fixed;
+  top: 90%;
+  left: 90%;
+  transform: translate(-50%, -50%);
+  background-color: var(--dark-green);
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 9999;
+}
+
+.popup-content {
+  text-align: center;
+  color: white;
+  font-size: 18px;
+}
+
+.instamart-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  margin: 222px 150px;
+}
+
+.pane-title {
+  font-size: 36px;
+  font-weight: bold;
+  color: var(--dark-orange);
+  margin-bottom: 10px;
+}
+
+.pane-description {
+  font-size: 24px;
+  color: #0a0a0a;
+  margin-bottom: 20px;
 }
