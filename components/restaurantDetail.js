@@ -1,14 +1,26 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom"; // import useParams for read `resId`
+import React, { useEffect, useState, useContext } from "react";
+import { useParams } from "react-router-dom";
 import useMenuItems from "../utils/useMenuItems";
 import useRestaurant from "../utils/useRestaurant";
 import { IMG_CDN_URL, ITEM_IMG_CDN_URL } from "../constants";
 import { MenuShimmer } from "./shimmer";
+import { CartContext } from "./CartContext";
 
 const RestaurantMenu = () => {
-  const { resId } = useParams(); // call useParams and get value of restaurant id using object destructuring
+  const { resId } = useParams();
+  const { cartItems, addToCart, removeFromCart } = useContext(CartContext);
+  const [showPopup, setShowPopup] = useState(false); // State to control the visibility of the popup
+
   const restaurant = useRestaurant(resId);
   const menuItems = useMenuItems(resId);
+
+  const handleAddToCart = (item) => {
+    addToCart(item);
+    setShowPopup(true); // Show the popup when the item is added to the cart
+    setTimeout(() => {
+      setShowPopup(false); // Hide the popup after a certain delay (e.g., 3 seconds)
+    }, 500);
+  };
 
   return !restaurant ? (
     <MenuShimmer />
@@ -43,7 +55,6 @@ const RestaurantMenu = () => {
                 ? restaurant.aggregatedDiscountInfo.header
                 : "15% OFF"}
             </div>
-
             <div className="restaurant-rating-slash">|</div>
             <div>{restaurant?.costForTwoMessage}</div>
           </div>
@@ -79,13 +90,27 @@ const RestaurantMenu = () => {
                       alt={item?.name}
                     />
                   )}
-                  <button className="add-btn"> ADD +</button>
+                  <button
+                    className="add-btn"
+                    onClick={() => handleAddToCart(item)} // Call handleAddToCart instead of directly addToCart
+                  >
+                    ADD +
+                  </button>
                 </div>
               </div>
             ))}
           </div>
         </div>
       </div>
+
+      {/* Popup */}
+      {showPopup && (
+        <div className="popup">
+          <div className="popup-content">
+            <p>Item added to cart!</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
