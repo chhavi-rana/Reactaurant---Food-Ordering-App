@@ -663,3 +663,20 @@ img {
   color: #0a0a0a;
   margin-bottom: 20px;
 }
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+  .instamart-container {
+    margin: 50px 20px;
+  }
+  
+  .pane-title {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+  
+  .pane-description {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+}
