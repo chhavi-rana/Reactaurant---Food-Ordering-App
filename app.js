@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, Router, RouterProvider } from "react-router-dom";
 import "./styles.css";
@@ -11,29 +11,12 @@ import Help from "./components/help";
 import Cart from "./components/cart";
 import { Outlet } from "react-router-dom";
 import RestaurantMenu from "./components/restaurantDetail";
-/* 
+import Shimmer from "./components/shimmer";
+import { CartProvider } from './components/CartContext';
 
-AppLayout : (Planning)
 
-Header
-    -Logo
-    -NavItems(Right Side)
-    -Cart
-
-Body
-    -SearchBar
-    -RestaurantList
-        -RestaurantCard
-            -Image
-            -Name
-            -Cuisine
-            -Distance
-
-Footer 
-    -Links
-    -Copyright
-
-*/
+// Lazy loading
+const InstaMart = lazy(() => import("./components/instaMart.js"));
 
 const AppLayout = () => {
   return (
@@ -48,7 +31,11 @@ const AppLayout = () => {
 const AppRouter = createBrowserRouter([
   {
     path: "/",
-    element: <AppLayout />,
+    element: (
+      <CartProvider> {/* Wrap the AppLayout with the CartProvider */}
+        <AppLayout />
+      </CartProvider>
+    ),
     errorElement: <Error />,
     children: [
       {
@@ -71,9 +58,21 @@ const AppRouter = createBrowserRouter([
         path: "/restaurant/:resId",
         element: <RestaurantMenu />,
       },
+      {
+        path: "/instamart",
+        element: (
+          <Suspense fallback={<Shimmer/>}>
+            <InstaMart />
+          </Suspense>
+        ),
+      },
     ],
   },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<RouterProvider router={AppRouter} />);
+root.render(
+  <RouterProvider router={AppRouter}>
+    <Router />
+  </RouterProvider>
+);
