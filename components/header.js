@@ -12,6 +12,9 @@ const Header = () => {
       </div>
       <div className="nav-link">
         <ul>
+          <Link to="/instamart">
+            <li className="nav-items">InstaMart</li>
+          </Link>
           <Link to="/offer">
             <li className="nav-items">Offers</li>
           </Link>
@@ -24,11 +27,11 @@ const Header = () => {
           </Link>
 
           {loggedInUser ? (
-            <button className="auth" onClick={() => setLoggedInUser(false)}>
+            <button className="auth nav-itmes" onClick={() => setLoggedInUser(false)}>
               LogOut
             </button>
           ) : (
-            <button className="auth" onClick={() => setLoggedInUser(true)}>
+            <button className="auth nav-items" onClick={() => setLoggedInUser(true)}>
               LogIn
             </button>
           )}
