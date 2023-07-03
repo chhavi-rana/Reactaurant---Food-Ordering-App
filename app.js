@@ -12,7 +12,7 @@ import Cart from "./components/cart";
 import { Outlet } from "react-router-dom";
 import RestaurantMenu from "./components/restaurantDetail";
 import Shimmer from "./components/shimmer";
-import { CartProvider } from './components/CartContext';
+import { CartProvider } from './utils/CartContext';
 
 
 // Lazy loading

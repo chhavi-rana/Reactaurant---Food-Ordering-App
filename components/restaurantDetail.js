@@ -4,7 +4,7 @@ import useMenuItems from "../utils/useMenuItems";
 import useRestaurant from "../utils/useRestaurant";
 import { IMG_CDN_URL, ITEM_IMG_CDN_URL } from "../constants";
 import { MenuShimmer } from "./shimmer";
-import { CartContext } from "./CartContext";
+import { CartContext } from "../utils/CartContext";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();

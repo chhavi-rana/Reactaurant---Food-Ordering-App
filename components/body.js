@@ -48,7 +48,6 @@ const Body = () => {
   }
 
   const isOnline = useOnline();
-  console.log(isOnline);
 
   if (!isOnline) {
     return (
