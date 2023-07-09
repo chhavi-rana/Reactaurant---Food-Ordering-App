@@ -1,8 +1,16 @@
 import React, { useContext } from "react";
-import { CartContext } from "../utils/CartContext";
+import store from "../utils/store";
+import { useSelector } from "react-redux/es/hooks/useSelector";
+import { useDispatch } from "react-redux";
+import { removeItem, clearCart } from "../utils/cartSlice";
 
 const Cart = () => {
-  const { cartItems, removeFromCart, clearCart } = useContext(CartContext);
+  const cartItems = useSelector(store => store.cart.items)
+  const dispatch = useDispatch();
+  
+  const handleClear = () => {
+    dispatch(clearCart());
+  }
 
   return (
     <div className="cart-container">
@@ -22,14 +30,18 @@ const Cart = () => {
                 <div className="item-price">{item.price/100}</div>
                 <button
                   className="remove-button"
-                  onClick={() => removeFromCart(item.id)}
+                  onClick={() => {
+                    dispatch(removeItem(item))
+                  }}
                 >
-                  Remove
+                  Remove 
                 </button>
               </li>
             ))}
           </ul>
-          <button className="clear-button" onClick={clearCart}>
+          <button className="clear-button" onClick={
+             handleClear
+          }>
             Clear Cart
           </button>
         </div>

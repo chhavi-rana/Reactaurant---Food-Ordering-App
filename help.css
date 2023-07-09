@@ -4,6 +4,11 @@
   padding: 20px;
 }
 
+.accordion-title {
+  cursor: pointer;
+  margin-bottom: 4px;
+}
+
 h1 {
   font-size: 24px;
   margin-bottom: 10px;

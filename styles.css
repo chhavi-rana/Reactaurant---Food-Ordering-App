@@ -36,7 +36,7 @@ a {
   align-items: center;
   height: 120px;
   padding: 10px;
-  background-color: #000000;
+  background-color: black;
   box-shadow: 0 1px 8px #eda034;
 }
 
@@ -52,9 +52,11 @@ img {
 }
 
 .nav-items:hover {
-  background-color: whitesmoke;
+  background-color: lightsteelblue;
   border-radius: 5px;
   cursor: pointer;
+  color: black;
+  font-weight: 300;
 }
 
 .auth {
@@ -168,6 +170,7 @@ img {
 
 .card:hover {
   transform: scale(1.03);
+  background-color: lightsteelblue;
 }
 
 .footer {
@@ -207,8 +210,8 @@ img {
   height: 200px;
   justify-content: center;
   align-items: center;
-  background-color: var(--dark-orange);
-  color: var(--white);
+  background-color: lightsteelblue;
+  color: black;
 }
 .restaurant-img {
   width: 250px;
@@ -572,9 +575,9 @@ img {
 }
 
 .cart-item {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
   margin-bottom: 10px;
 }
 
@@ -602,6 +605,7 @@ img {
   cursor: pointer;
   font-size: 14px;
   transition: background-color 0.3s ease;
+  width: 30%;
 }
 
 .remove-button:hover {
@@ -643,7 +647,7 @@ img {
 }
 
 .instamart-container {
-  background-color: #fff;
+  background-color: lightsteelblue;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -669,14 +673,18 @@ img {
   .instamart-container {
     margin: 50px 20px;
   }
-  
+
   .pane-title {
     font-size: 24px;
     margin-bottom: 8px;
   }
-  
+
   .pane-description {
     font-size: 18px;
     margin-bottom: 16px;
+  }
+
+  .cart-item {
+    display: flex;
   }
 }

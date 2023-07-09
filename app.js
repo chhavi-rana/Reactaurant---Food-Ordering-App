@@ -12,7 +12,8 @@ import Cart from "./components/cart";
 import { Outlet } from "react-router-dom";
 import RestaurantMenu from "./components/restaurantDetail";
 import Shimmer from "./components/shimmer";
-import { CartProvider } from './utils/CartContext';
+import store from "./utils/store";
+import { Provider } from "react-redux";
 
 
 // Lazy loading
@@ -32,9 +33,9 @@ const AppRouter = createBrowserRouter([
   {
     path: "/",
     element: (
-      <CartProvider> {/* Wrap the AppLayout with the CartProvider */}
+      <Provider store={store}> {/* Wrap the AppLayout with the CartProvider */}
         <AppLayout />
-      </CartProvider>
+      </Provider>
     ),
     errorElement: <Error />,
     children: [

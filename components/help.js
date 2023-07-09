@@ -1,4 +1,25 @@
+import React, { useState } from "react";
 import "../help.css";
+
+const AccordionItem = ({ title, content }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const toggleAccordion = () => {
+    setIsExpanded(!isExpanded);
+  };
+
+  return (
+    <div className="accordion-item">
+      <h3
+        className={`accordion-title ${isExpanded ? "expanded" : ""}`}
+        onClick={toggleAccordion}
+      >
+        {title}
+      </h3>
+      {isExpanded && <div className="accordion-content">{content}</div>}
+    </div>
+  );
+};
 
 const Help = () => {
   return (
@@ -12,33 +33,35 @@ const Help = () => {
       <h2>Frequently Asked Questions</h2>
       <ul>
         <li>
-          <h3>How can I place an order?</h3>
-          <p>To place an order, follow these steps:</p>
-          <ol>
-            <li>Open the app and browse through the menu.</li>
-            <li>Select the items you want to order.</li>
-            <li>Customize your order if necessary (e.g., toppings, size).</li>
-            <li>Review your order and proceed to checkout.</li>
-            <li>Provide delivery address and payment information.</li>
-            <li>Confirm your order.</li>
-          </ol>
+          <AccordionItem
+            title="How can I place an order?"
+            content={
+              <ol>
+                <li>Open the app and browse through the menu.</li>
+                <li>Select the items you want to order.</li>
+                <li>
+                  Customize your order if necessary (e.g., toppings, size).
+                </li>
+                <li>Review your order and proceed to checkout.</li>
+                <li>Provide delivery address and payment information.</li>
+                <li>Confirm your order.</li>
+              </ol>
+            }
+          />
         </li>
 
         <li>
-          <h3>Can I track my order?</h3>
-          <p>
-            Yes, you can track your order in real-time. Once your order is
-            confirmed, you will receive a tracking link and notifications about
-            the status of your order.
-          </p>
+          <AccordionItem
+            title="Can I track my order?"
+            content="Yes, you can track your order in real-time. Once your order is confirmed, you will receive a tracking link and notifications about the status of your order."
+          />
         </li>
 
         <li>
-          <h3>What payment methods are accepted?</h3>
-          <p>
-            We accept various payment methods, including credit/debit cards,
-            digital wallets (e.g., Apple Pay, Google Pay), and cash on delivery.
-          </p>
+          <AccordionItem
+            title="What payment methods are accepted?"
+            content="We accept various payment methods, including credit/debit cards, digital wallets (e.g., Apple Pay, Google Pay), and cash on delivery."
+          />
         </li>
       </ul>
 

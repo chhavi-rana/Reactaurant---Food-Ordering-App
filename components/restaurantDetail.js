@@ -4,22 +4,22 @@ import useMenuItems from "../utils/useMenuItems";
 import useRestaurant from "../utils/useRestaurant";
 import { IMG_CDN_URL, ITEM_IMG_CDN_URL } from "../constants";
 import { MenuShimmer } from "./shimmer";
-import { CartContext } from "../utils/CartContext";
+import { useSelector } from "react-redux/es/hooks/useSelector";
+import { useDispatch } from "react-redux";
+import { addNewItem } from "../utils/cartSlice";
+import store from "../utils/store";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
-  const { cartItems, addToCart, removeFromCart } = useContext(CartContext);
+  const dispatch = useDispatch();
+  
   const [showPopup, setShowPopup] = useState(false); // State to control the visibility of the popup
 
   const restaurant = useRestaurant(resId);
   const menuItems = useMenuItems(resId);
 
   const handleAddToCart = (item) => {
-    addToCart(item);
-    setShowPopup(true); // Show the popup when the item is added to the cart
-    setTimeout(() => {
-      setShowPopup(false); // Hide the popup after a certain delay (e.g., 3 seconds)
-    }, 500);
+      dispatch(addNewItem(item));
   };
 
   return !restaurant ? (

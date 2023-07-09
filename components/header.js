@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const Header = () => {
+  const cartItems = useSelector(store => store.cart.items)
+  const cartCount = cartItems.length;
   const [loggedInUser, setLoggedInUser] = useState(false);
   return (
     <div className="nav-bar">
@@ -23,7 +26,7 @@ const Header = () => {
           </Link>
           {/* <li className="nav-items">Sign In</li> */}
           <Link to="/cart">
-            <li className="nav-items">Cart</li>
+            <li className="nav-items">Cart [<span style={{color : "aliceblue"}}>{cartCount}</span>] </li>
           </Link>
 
           {loggedInUser ? (

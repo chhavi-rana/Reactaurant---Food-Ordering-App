@@ -1,14 +1,16 @@
 {
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-redux": "^8.1.1",
     "react-router-dom": "^6.11.2"
   },
   "devDependencies": {
     "parcel": "^2.8.3",
     "process": "^0.11.10"
   },
-  "name": "lec7-reactpractise",
+  "name": "lec14-reactpractise-redux",
   "version": "1.0.0",
   "scripts": {
     "start": "parcel index.html",
