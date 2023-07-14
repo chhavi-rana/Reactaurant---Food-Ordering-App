@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import store from "../utils/store";
+import store from "../redux/store";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { useDispatch } from "react-redux";
-import { removeItem, clearCart } from "../utils/cartSlice";
+import { removeItem, clearCart } from "../redux/cartSlice";
 
 const Cart = () => {
   const cartItems = useSelector(store => store.cart.items)

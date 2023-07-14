@@ -6,8 +6,8 @@ import { IMG_CDN_URL, ITEM_IMG_CDN_URL } from "../constants";
 import { MenuShimmer } from "./shimmer";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { useDispatch } from "react-redux";
-import { addNewItem } from "../utils/cartSlice";
-import store from "../utils/store";
+import { addNewItem } from "../redux/cartSlice";
+import store from "../redux/store";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();

@@ -12,7 +12,7 @@ import Cart from "./components/cart";
 import { Outlet } from "react-router-dom";
 import RestaurantMenu from "./components/restaurantDetail";
 import Shimmer from "./components/shimmer";
-import store from "./utils/store";
+import store from "./redux/store";
 import { Provider } from "react-redux";
 
 
@@ -33,7 +33,7 @@ const AppRouter = createBrowserRouter([
   {
     path: "/",
     element: (
-      <Provider store={store}> {/* Wrap the AppLayout with the CartProvider */}
+      <Provider store={store}> 
         <AppLayout />
       </Provider>
     ),
