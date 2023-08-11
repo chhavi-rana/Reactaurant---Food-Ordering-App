@@ -40,8 +40,25 @@ const Body = () => {
 
       const json = await response.json();
 
-      setAllRestaurant(json?.data?.cards[2]?.data?.data?.cards);
-      setFilteredRestaurant(json?.data?.cards[2]?.data?.data?.cards);
+      async function checkJsonData(jsonData) {
+        for (let i = 0; i < jsonData?.data?.cards.length; i++) {
+
+          // initialize checkData for Swiggy Restaurant data
+          let checkData = json?.data?.cards[i]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+
+          // if checkData is not undefined then return it
+          if (checkData !== undefined) {
+            return checkData;
+          }
+        }
+      }
+
+      // call the checkJsonData() function which return Swiggy Restaurant data
+      const resData = await checkJsonData(json);
+
+      // update the state variable restaurants with Swiggy API data
+      setAllRestaurant(resData);
+      setFilteredRestaurant(resData);
     } catch (err) {
       console.log(err);
     }
@@ -61,7 +78,7 @@ const Body = () => {
       </div>
     );
   }
-
+  console.log(allrestaurant);
   if (allrestaurant === undefined) {
     return (
       <div className="restaurant-unavailable-container">
@@ -105,10 +122,10 @@ const Body = () => {
         {filterRestaurant?.map((restaurant) => {
           return (
             <Link
-              to={"/restaurant/" + restaurant.data.id}
-              key={restaurant.data.id}
+              to={"/restaurant/" + restaurant?.info?.id}
+              key={restaurant.info.id}
             >
-              <RestaurantCard {...restaurant.data} />
+              <RestaurantCard {...restaurant?.info} />
             </Link>
           );
         })}

@@ -5,8 +5,8 @@ const RestaurantCard = ({
   name,
   cuisines,
   area,
-  lastMileTravelString,
-  costForTwoString,
+  sla,
+  costForTwo,
   avgRating,
 }) => {
   return (
@@ -29,9 +29,9 @@ const RestaurantCard = ({
           {avgRating}
         </h4>
         <h4>•</h4>
-        <h4>{lastMileTravelString}</h4>
+        <h4>{sla?.lastMileTravelString}</h4>
         <h4>•</h4>
-        <h4>{costForTwoString}</h4>
+        <h4>{costForTwo}</h4>
       </span>
     </div>
   );
