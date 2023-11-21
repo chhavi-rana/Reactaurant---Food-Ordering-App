@@ -11,7 +11,12 @@ const RestaurantCard = ({
 }) => {
   return (
     <div className="card">
-      <img src={IMG_CDN_URL + cloudinaryImageId} width="100" alt={name}/>
+      <img
+        src={IMG_CDN_URL + cloudinaryImageId}
+        height="100"
+        width="100"
+        alt={name}
+      />
       <h3>{name}</h3>
       <h5>{cuisines.join(", ")}</h5>
       <h5>{area}</h5>

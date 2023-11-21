@@ -45,7 +45,7 @@ const Cart = () => {
           </ul>
           <div className="order-total-container">
             <div className="order-total-label">Order Total:</div>
-            <div className="order-total-value">${orderTotal.toFixed(2)}</div>
+            <div className="order-total-value">₹{orderTotal.toFixed(2)}</div>
           </div>
           <button className="clear-button" onClick={handleClear}>
             Clear Cart
