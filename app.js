@@ -15,6 +15,7 @@ import RestaurantMenu from "./components/restaurantDetail";
 import Shimmer from "./components/shimmer";
 import store from "./redux/store";
 import { Provider } from "react-redux";
+import OrderComponent from "./components/order.js";
 
 
 // Lazy loading
@@ -71,6 +72,10 @@ const AppRouter = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/order",
+        element: <OrderComponent />,
       },
     ],
   },

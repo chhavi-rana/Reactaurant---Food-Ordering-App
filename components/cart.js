@@ -1,20 +1,20 @@
-import React, { useContext } from "react";
-import store from "../redux/store";
-import { useSelector } from "react-redux/es/hooks/useSelector";
-import { useDispatch } from "react-redux";
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { removeItem, clearCart } from "../redux/cartSlice";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
-  const cartItems = useSelector(store => store.cart.items)
+  const cartItems = useSelector((store) => store.cart.items);
   const dispatch = useDispatch();
-  
+  const navigate = useNavigate();
+
   const handleClear = () => {
     dispatch(clearCart());
-  }
+  };
 
-  const handleOrder = () =>{
-    
-  }
+
+  // Calculate the order total
+  const orderTotal = cartItems.reduce((total, item) => total + item.price, 0) / 100;
 
   return (
     <div className="cart-container">
@@ -31,26 +31,26 @@ const Cart = () => {
                   </div>
                   <div className="item-name">{item.name}</div>
                 </div>
-                <div className="item-price">{item.price/100}</div>
+                <div className="item-price">{item.price / 100}</div>
                 <button
                   className="remove-button"
                   onClick={() => {
-                    dispatch(removeItem(item))
+                    dispatch(removeItem(item));
                   }}
                 >
-                  Remove 
+                  Remove
                 </button>
               </li>
             ))}
           </ul>
-          <button className="clear-button" onClick={
-             handleClear
-          }>
+          <div className="order-total-container">
+            <div className="order-total-label">Order Total:</div>
+            <div className="order-total-value">${orderTotal.toFixed(2)}</div>
+          </div>
+          <button className="clear-button" onClick={handleClear}>
             Clear Cart
           </button>
-          <button className="order-button" onClick={
-             handleOrder
-          }>
+          <button className="order-button" onClick={() => navigate("/order")}>
             Order
           </button>
         </div>

@@ -786,3 +786,98 @@ a {
 .login-btn-red {
   color: var(--x-dark-red);
 }
+
+.order-total-container {
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.order-total-label {
+  color: orange;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.order-total-value {
+  font-size: 24px;
+  color: green; 
+  padding-left: 20;
+}
+
+.order-component {
+  width: 380px;
+  margin: 40px auto;
+}
+
+.order-component form {
+  position: relative;
+  z-index: 1;
+  background: var(--light-orange);
+  border-radius: 10px;
+  max-width: 380px;
+  padding: 25px 40px;
+  text-align: left;
+}
+
+.order-component h2 {
+  font-size: 24px;
+  color: #4b6cb7;
+  margin-bottom: 20px;
+}
+
+.order-component h3 {
+  font-size: 18px;
+  color: #4b6cb7;
+  margin-top: 20px;
+}
+
+.order-component label {
+  display: block;
+  margin: 10px 0;
+}
+
+.order-component input,
+.order-component textarea {
+  outline: 0;
+  background: var(--input-bg);
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.order-component input:focus,
+.order-component textarea:focus {
+  background: var(--input-bg-focus);
+  border: 1px solid #4b6cb7;
+}
+
+.order-component button {
+  text-transform: uppercase;
+  outline: 0;
+  background: #4b6cb7;
+  width: 100%;
+  border: 0;
+  border-radius: 5px;
+  padding: 15px;
+  color: #ffffff;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.order-component button:active {
+  background: #395591;
+}
+
+.order-component p.error {
+  margin: 10px 0;
+  font-size: 13px;
+  color: red;
+}

@@ -63,11 +63,11 @@ const Header = () => {
                   setIsLoggedin(false);
                 }}
               >
-                Logout<span className={isLoggedin ? "login-btn-green" : "login-btn-red"}> ●</span>
+                Logout<span className={isOnline ? "login-btn-green" : "login-btn-red"}> ●</span>
               </button>
             ) : (
               <button className="login-btn" onClick={() => navigate("/login")}>
-                Login<span className={isLoggedin ? "login-btn-green" : "login-btn-red"}> ●</span>
+                Login<span className={isOnline ? "login-btn-green" : "login-btn-red"}> ●</span>
               </button>
             )}
           </li>
