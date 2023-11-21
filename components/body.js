@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 function filterData(searchText, restaurant) {
   const filterData = restaurant.filter((restaurants) => {
-    return restaurants?.data?.name
+    return restaurants?.info?.name
       ?.toLowerCase()
       ?.includes(searchText.toLowerCase());
   });
@@ -42,9 +42,10 @@ const Body = () => {
 
       async function checkJsonData(jsonData) {
         for (let i = 0; i < jsonData?.data?.cards.length; i++) {
-
           // initialize checkData for Swiggy Restaurant data
-          let checkData = json?.data?.cards[i]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+          let checkData =
+            json?.data?.cards[i]?.card?.card?.gridElements?.infoWithStyle
+              ?.restaurants;
 
           // if checkData is not undefined then return it
           if (checkData !== undefined) {
@@ -119,16 +120,23 @@ const Body = () => {
         </button>
       </div>
       <div className="restaurant-list">
-        {filterRestaurant?.map((restaurant) => {
-          return (
+        {filterRestaurant?.length === 0 ? (
+            <img
+              src={require("../images/no-restaurantt.png")}
+              alt="No Restaurants Found"
+              height="200"
+              width="500"
+            />
+        ) : (
+          filterRestaurant?.map((restaurant) => (
             <Link
               to={"/restaurant/" + restaurant?.info?.id}
               key={restaurant.info.id}
             >
               <RestaurantCard {...restaurant?.info} />
             </Link>
-          );
-        })}
+          ))
+        )}
       </div>
     </>
   );

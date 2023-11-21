@@ -9,6 +9,7 @@ import Offers from "./components/offer";
 import Error from "./components/error";
 import Help from "./components/help";
 import Cart from "./components/cart";
+import Login from "./components/login.js";
 import { Outlet } from "react-router-dom";
 import RestaurantMenu from "./components/restaurantDetail";
 import Shimmer from "./components/shimmer";
@@ -66,6 +67,10 @@ const AppRouter = createBrowserRouter([
             <InstaMart />
           </Suspense>
         ),
+      },
+      {
+        path: "/login",
+        element: <Login />,
       },
     ],
   },

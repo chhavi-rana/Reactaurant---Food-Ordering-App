@@ -12,6 +12,10 @@ const Cart = () => {
     dispatch(clearCart());
   }
 
+  const handleOrder = () =>{
+    
+  }
+
   return (
     <div className="cart-container">
       <h2 className="cart-title">Cart</h2>
@@ -43,6 +47,11 @@ const Cart = () => {
              handleClear
           }>
             Clear Cart
+          </button>
+          <button className="order-button" onClick={
+             handleOrder
+          }>
+            Order
           </button>
         </div>
       ) : (
