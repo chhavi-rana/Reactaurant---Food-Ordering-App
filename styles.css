@@ -102,7 +102,7 @@ a {
   width: 8%;
   padding: 14px 15px 14px 20px;
   background-color: #f18939;
-  color: white;
+  color: rgb(0, 0, 0);
   border: 1px solid #aabcca;
   border-bottom-right-radius: 5px;
   border-top-right-radius: 5px;
@@ -158,7 +158,7 @@ a {
   align-items: center;
   background-color: var(--light-green);
   border-radius: 5px;
-  color: white;
+  color: rgb(0, 0, 0);
   padding: 5px;
   margin-top: 5px;
 }

@@ -22,7 +22,7 @@ const RestaurantCard = ({
               ? { backgroundColor: "var(--light-red)" }
               : avgRating === "--"
               ? { backgroundColor: "white", color: "black" }
-              : { color: "white" }
+              : { color: "black" }
           }
         >
           <i className="fa-solid fa-star"></i>

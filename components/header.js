@@ -35,6 +35,7 @@ const Header = () => {
             className="logo-image"
             src={require("../images/logo.png")}
             alt="logo"
+            height="100"
             width="100"
           />
         </Link>
