@@ -1,5 +1,5 @@
 import { useContext, useState, useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
@@ -31,11 +31,18 @@ const Header = () => {
     <div className="nav-bar">
       <div className="logo">
         <Link to="/">
-          <img className="logo-image" src={require("../images/logo.png")} alt="logo" />
+          <img
+            className="logo-image"
+            src={require("../images/logo.png")}
+            alt="logo"
+            width="100"
+          />
         </Link>
       </div>
       {/* if user is logged in then display userName */}
-      {isLoggedin && <div className="user-name">Hi {getLocalStorage?.userName}!</div>}
+      {isLoggedin && (
+        <div className="user-name">Hi {getLocalStorage?.userName}!</div>
+      )}
       <div className="nav-link">
         <ul>
           <Link to="/instamart">
@@ -59,15 +66,27 @@ const Header = () => {
               <button
                 className="logout-btn"
                 onClick={() => {
-                  clearLocalStorage()
+                  clearLocalStorage();
                   setIsLoggedin(false);
                 }}
               >
-                Logout<span className={isOnline ? "login-btn-green" : "login-btn-red"}> ●</span>
+                Logout
+                <span
+                  className={isOnline ? "login-btn-green" : "login-btn-red"}
+                >
+                  {" "}
+                  ●
+                </span>
               </button>
             ) : (
               <button className="login-btn" onClick={() => navigate("/login")}>
-                Login<span className={isOnline ? "login-btn-green" : "login-btn-red"}> ●</span>
+                Login
+                <span
+                  className={isOnline ? "login-btn-green" : "login-btn-red"}
+                >
+                  {" "}
+                  ●
+                </span>
               </button>
             )}
           </li>
