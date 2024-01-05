@@ -25,7 +25,7 @@ const Body = () => {
   async function getRestaurants() {
     try {
       const response = await fetch(
-        "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&page_type=DESKTOP_WEB_LISTING",
+        "https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&page_type=DESKTOP_WEB_LISTING",
         {
           method: "GET",
           headers: {
